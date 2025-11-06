@@ -8,3 +8,16 @@ class GetAuthorsEvent extends AuthorEvent {
 
   GetAuthorsEvent({required this.query});
 }
+
+class GetAuthorDetailsEvent extends AuthorEvent {
+  final String authorId;
+
+  GetAuthorDetailsEvent({required this.authorId});
+}
+
+class GetAuthorWorksEvent extends AuthorEvent {
+  final String authorId;
+  final String? nextLink;
+
+  GetAuthorWorksEvent({required this.authorId, this.nextLink});
+}

@@ -27,6 +27,19 @@ class AuthorEntity extends Equatable {
     this.alreadyReadCount = 0,
   });
 
+  String get fullDate {
+    if (birthDate.isEmpty && deathDate.isEmpty) {
+      return 'N/A';
+    } else if (deathDate.isEmpty) {
+      return 'birth. $birthDate';
+    } else if (birthDate.isEmpty) {
+      return 'death. $deathDate';
+    } else {
+      return '$birthDate - $deathDate';
+    }
+  }
+
+  @override
   @override
   List<Object?> get props => [
     birthDate,
